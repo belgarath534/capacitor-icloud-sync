@@ -1,0 +1,68 @@
+{
+  "name": "capacitor-icloud-sync",
+  "version": "0.1.0",
+  "description": "Silent, automatic iCloud backup for Capacitor apps. No sign-in screen, no account creation — just uses whatever iCloud account is already signed into the device, scoped automatically to that account via CloudKit's private database.",
+  "main": "dist/plugin.cjs.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "unpkg": "dist/plugin.js",
+  "files": [
+    "dist/",
+    "ios/Sources",
+    "ios/Tests",
+    "Package.swift",
+    "CapacitorIcloudSync.podspec"
+  ],
+  "author": "Leo Productions",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leoproductions/capacitor-icloud-sync.git"
+  },
+  "bugs": {
+    "url": "https://github.com/leoproductions/capacitor-icloud-sync/issues"
+  },
+  "keywords": [
+    "capacitor",
+    "plugin",
+    "native",
+    "ios",
+    "icloud",
+    "cloudkit",
+    "backup",
+    "sync",
+    "save-data"
+  ],
+  "scripts": {
+    "verify": "npm run verify:ios && npm run verify:web",
+    "verify:ios": "cd ios && pod install && xcodebuild -workspace Plugin.xcworkspace -scheme Plugin -destination generic/platform=iOS && cd ..",
+    "verify:web": "npm run build",
+    "lint": "eslint . --ext ts",
+    "fmt": "eslint . --ext ts --fix",
+    "docgen": "docgen --api ICloudSyncPlugin --output-readme docs/README-api.md --output-json dist/docs.json",
+    "build": "npm run clean && tsc && rollup -c rollup.config.js",
+    "clean": "rimraf ./dist",
+    "watch": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@capacitor/core": "^7.0.0",
+    "@capacitor/docgen": "^0.3.0",
+    "@capacitor/ios": "^7.0.0",
+    "eslint": "^8.57.0",
+    "rimraf": "^5.0.0",
+    "rollup": "^4.20.0",
+    "typescript": "^5.5.0"
+  },
+  "peerDependencies": {
+    "@capacitor/core": ">=7.0.0"
+  },
+  "capacitor": {
+    "ios": {
+      "src": "ios"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
