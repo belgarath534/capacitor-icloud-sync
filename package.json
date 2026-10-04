@@ -1,6 +1,6 @@
 {
   "name": "capacitor-icloud-sync",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Silent, automatic iCloud backup for Capacitor apps. No sign-in screen, no account creation — just uses whatever iCloud account is already signed into the device, scoped automatically to that account via CloudKit's private database.",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
